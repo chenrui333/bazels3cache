@@ -178,7 +178,7 @@ export function startServer(s3: AWS.S3, config: Config, onDoneInitializing: () =
     }
 
     // We are starting up; if there are any left-over temp files that were supposed to be
-    // uploaded by the previous instance of the bazels3cache, delete them
+    // uploaded by the previous instance of the bazelcache, delete them
     clearAsyncUploadCache();
 
     const server = http.createServer((req: http.ServerRequest, res: http.ServerResponse) => {
@@ -401,7 +401,7 @@ export function startServer(s3: AWS.S3, config: Config, onDoneInitializing: () =
     server.on("error", (e) => {
         const message = `could not start server: ${e.message}`;
         winston.error(message);
-        console.error(`bazels3cache: ${message}`);
+        console.error(`bazelcache: ${message}`);
         process.exitCode = 1;
     });
 
@@ -409,7 +409,7 @@ export function startServer(s3: AWS.S3, config: Config, onDoneInitializing: () =
         const logfile = path.resolve(config.logging.file);
         debug(`started server at http://${config.host}:${config.port}/`);
         winston.info(`started server at http://${config.host}:${config.port}/`);
-        console.log(`bazels3cache: started server at http://${config.host}:${config.port}/, logging to ${logfile}`);
+        console.log(`bazelcache: started server at http://${config.host}:${config.port}/, logging to ${logfile}`);
         onDoneInitializing();
     });
 }

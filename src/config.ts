@@ -124,7 +124,7 @@ function ensureInteger(name: string, value: any): number {
 export function getConfig(args: Args): Config {
     const defaultConfig = readConfigFile(path.join(__dirname, "../config.default.json"));
 
-    const userConfigPath = path.join(process.env.HOME, ".config/bazels3cache/config.json");
+    const userConfigPath = path.join(process.env.HOME, ".config/bazelcache/config.json");
     const userConfig: Config = fs.existsSync(userConfigPath)
         ? readConfigFile(userConfigPath)
         : {};
@@ -136,7 +136,7 @@ export function getConfig(args: Args): Config {
     // Merge the different configs in order -- the later ones override the earlier ones:
     const mergedConfig: Config = merge(
         defaultConfig,      // .../config.default.json
-        userConfig,         // ~/.config/bazels3cache/config.json
+        userConfig,         // ~/.config/bazelcache/config.json
         commandLineConfig,  // --config myconfig.json
         args                // rest of command line, e.g. --port 1234
     );
@@ -151,7 +151,7 @@ export function getConfig(args: Args): Config {
 // If validation succeeds, returns null.
 export function validateConfig(config: Config): Config {
     if (!config.bucket) {
-        throw "S3 bucket is required, e.g. 'bazels3cache --bucket=<bucketname>'";
+        throw "S3 bucket is required, e.g. 'bazelcache --bucket=<bucketname>'";
     }
 
     config = merge(

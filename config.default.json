@@ -10,13 +10,13 @@
   "socketTimeoutSeconds": 30, // Default is 120 seconds
   "maxEntrySizeBytes": 64000000, // max size for one item uploaded to S3; 0 means no limit
   "allowGccDepfiles": true, // gcc depfiles often cause Bazel cross-machine build problems,
-                            // so bazels3cache can prevent them from being stored in the
+                            // so bazelcache can prevent them from being stored in the
                             // remote cache
 
   "asyncUpload": {
     "enabled": true,
     "maxPendingUploadMB": 250,
-    "cacheDir": "~/.cache/bazels3cache"
+    "cacheDir": "~/.cache/bazelcache"
   },
 
   "cache": { // settings related to the in-memory cache
@@ -29,6 +29,6 @@
     // "info" will log infos, warnings, and errors
     // To also log the full JSON of all S3 errors, use "verbose"
     "level": "info",
-    "file": "~/.bazels3cache.log"
+    "file": "~/.bazelcache.log"
   }
 }

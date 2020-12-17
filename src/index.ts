@@ -13,7 +13,7 @@ import { startServer } from "./server";
 import { initLogging } from "./logging";
 
 function fatalError(error: string) {
-    console.error(`bazels3cache: ${error}`); // the user should see this
+    console.error(`bazelcache: ${error}`); // the user should see this
     winston.error(error);                    // this goes to the log
     process.exitCode = 1;
 }
@@ -63,7 +63,7 @@ function daemonMain(args: Args, onDoneInitializing: () => void) {
 function main(args: string[]) {
     const DONE_INITIALIZING = "done_initializing";
 
-    // When bazels3cache launches, it spawns a child bazels3cache with "--daemon"
+    // When bazelcache launches, it spawns a child bazelcache with "--daemon"
     // added to the command line.
     //
     // The parent process then waits until that child process either exits, or sends

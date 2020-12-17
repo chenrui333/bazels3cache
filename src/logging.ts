@@ -2,7 +2,7 @@ import * as fs from "fs";
 import * as winston from "winston";
 import { Config } from "./config";
 
-// We want the log file to be world-writable, to deal with the case where one user ran bazels3cache,
+// We want the log file to be world-writable, to deal with the case where one user ran bazelcache,
 // and then later a different ran it. (This is a temporary hack; really we need to improve the way
 // we do logging rather than just opening a file in /tmp with the permissions of some arbitrary
 // user.)
