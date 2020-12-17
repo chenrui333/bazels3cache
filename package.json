@@ -1,6 +1,6 @@
 {
   "name": "bazelcache",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Simple WebDAV server for caching Bazel artifacts in S3",
   "main": "dist/index.js",
   "files": [
