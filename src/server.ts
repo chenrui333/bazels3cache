@@ -407,10 +407,11 @@ export function startServer(s3: AWS.S3, config: Config, onDoneInitializing: () =
 
     server.listen(config.port, config.host, () => {
         const logfile = path.resolve(config.logging.file);
-        debug(`started server at http://${config.host}:${config.port}/`);
-        winston.info(`started server at http://${config.host}:${config.port}/`);
-        console.log(`bazelcache: started server at http://${config.host}:${config.port}/, logging to ${logfile}`);
-        console.log('Ensuring that everything is plugged in');
+        debug(`Debug: started server at http://${config.host}:${config.port}/`);
+        winston.info(`Winston started server at http://${config.host}:${config.port}/`);
+        console.log(`Console: bazelcache: started server at http://${config.host}:${config.port}/, logging to ${logfile}`);
+        winston.info('Winston: Ensuring that everything is plugged in');
+        debug('Debug: Ensuring that everything is plugged in');
         onDoneInitializing();
     });
 }
